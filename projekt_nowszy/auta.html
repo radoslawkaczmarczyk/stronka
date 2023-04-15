@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jadące samochody</title>
+    <style>
+        
+        div{
+            width: auto;
+            height: 100px;
+            position: relative;     
+            animation: sam 10s infinite;
+            -webkit-animation: sam 10s infinite;
+            
+        }
+
+
+        #div1{animation-timing-function: linear;}
+        /* #div2{animation-timing-function: ease;} */
+        #div3{animation-timing-function: ease-in;}
+        #div4{animation-timing-function: ease;}
+        #div5{animation-timing-function: ease;}
+        #div6{animation-timing-function: linear;}
+        #div7{animation-timing-function: ease;}
+        #div8{animation-timing-function: ease-out;}
+
+        <!--prefiks dla Chrome-->
+        #div1{-webkit-animation-timing-function: linear;}
+       /*  #div2{-webkit-animation-timing-function: ease;} */
+        #div3{-webkit-animation-timing-function: ease-in;}
+        #div4{-webkit-animation-timing-function: ease;}
+        #div5{-webkit-animation-timing-function: ease-in-out;}
+        @keyframes sam{
+            from {left: 0px;}
+            to {left: 1900px;}
+        }   
+        
+        @-webkit-keyframes sam{
+            from {left: 0px;}
+            to {left: 1900px;}
+}
+        
+        
+        
+        
+        
+        
+        
+        body{
+            background-image:url(Untitled.png);
+        }
+        .tor{
+            margin-top: 20px;
+        }
+        .praw{
+            animation: praw 10s infinite;
+        }
+        @keyframes praw{
+            from {left: 2137px;}
+            to {left: 0px;}
+        }   
+        footer{
+            color: white;
+            text-align: center;
+            font-size: 40px;
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="tor">
+     <div id="div1"><img src="a1.png" width="150" height="70" alt="pierwszy samochod"></div>
+     <div id="div2" class="praw"><img src="a11.png" width="150" height="70"  alt="drugi samochod"></div>  </section>  <section class="tor">
+     <div id="div3"> <img src="a22.png" width="150" height="70"  alt="trzeci samochod"> </div>
+     <div id="div4"> <img src="a33.png" width="150" height="70"  alt="czwarty samochod"></div>  </section><section class="tor">
+     <div id="div5"> <img src="a11.png" width="150" height="70"  alt="piaty samochod"> </div>
+     <div id="div6"> <img src="a44.png" width="150" height="70"  alt="piaty samochod"> </div>  </section>  <section class="tor">
+     <div id="div7"> <img src="a22.png" width="150" height="70"  alt="piaty samochod"> </div>
+     <div id="div8"> <img src="a33.png" width="150" height="70"  alt="piaty samochod"> </div>  </section>
+     <footer>Copyright &copy; by Radek Kaczmarczyk 14280</footer>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>O mnie</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>O mnie</h1>
+	</header>
+	<nav>
+		<ul>
+            <li><a href="index.html">Strona główna</a></li>
+          <li><a href="omnie.html">O nas</a></li>
+            <li><a href="kolko.html">Gierka</a></li>
+          <li><a href="auta.html">Podstrona</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+		</ul>
+	</nav>
+	<section>
+		<h2>Wyższa Szkoła Ekonomii i Informatyki w Krakowie</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi porttitor, leo quis pharetra luctus, elit ipsum posuere lorem, eu volutpat magna tortor vel quam. Maecenas eleifend euismod mauris eu faucibus. Pellentesque in augue ac sapien iaculis lacinia nec et odio. Sed luctus dolor et sapien feugiat consequat. Nam sodales dolor in mi pellentesque imperdiet.</p>
+		<button onclick="alert('Witaj na mojej stronie!')">Kliknij mnie</button>
+	</section>
+	<section>
+		<h2>Obecna data oraz czas</h2>
+		<p id="demo">Kliknij przycisk, aby wyświetlić datę i godzinę.</p>
+		<button onclick="document.getElementById('demo').innerHTML = Date()">Kliknij mnie</button>
+	</section>
+	<section>
+		<h2>Formularz i alert</h2>
+		<form>
+			<label for="name">Imię:</label>
+			<input type="text" id="name" name="name">
+			<label for="email">Email:</label>
+			<input type="email" id="email" name="email">
+			<label for="message">Wiadomość:</label>
+			<textarea id="message" name="message"></textarea>
+			<input type="submit" value="Wyślij" onclick="alert('Twoja wiadomość została wysłana!')">
+		</form>
+	</section>
+	<footer>
+		<p>&copy; 2023 Radek Kaczmarczyk</p>
+	</footer>
+</body>
+</html>

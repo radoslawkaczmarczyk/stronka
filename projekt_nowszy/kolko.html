@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Gra w kółko i krzyżyk</title>
+    
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            text-align: center;
+            font-size: 60px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .player1 {
+            color: red;
+        }
+        .player2 {
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+           <li><a href="index.html">Strona główna</a></li>
+          <li><a href="omnie.html">O nas</a></li>
+            <li><a href="kolko.html">Gierka</a></li>
+          <li><a href="auta.html">Podstrona</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    <h1>Gra w kółko i krzyżyk</h1>
+    <table>
+        <tr>
+            <td id="0"></td>
+            <td id="1"></td>
+            <td id="2"></td>
+        </tr>
+        <tr>
+            <td id="3"></td>
+            <td id="4"></td>
+            <td id="5"></td>
+        </tr>
+        <tr>
+            <td id="6"></td>
+            <td id="7"></td>
+            <td id="8"></td>
+        </tr>
+    </table>
+    <button id="reset-btn">Nowa gra</button>
+    <script>
+        let currentPlayer = "player1";
+        const cells = document.getElementsByTagName("td");
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].addEventListener("click", function() {
+                if (!this.classList.contains("disabled")) {
+                    this.innerHTML = currentPlayer === "player1" ? "X" : "O";
+                    this.classList.add("disabled", currentPlayer);
+                    if (checkWin()) {
+                        alert("Gratulacje, wygrał " + currentPlayer);
+                        disableAllCells();
+                    } else if (checkDraw()) {
+                        alert("Remis!");
+                        disableAllCells();
+                    } else {
+                        currentPlayer = currentPlayer === "player1" ? "player2" : "player1";
+                    }
+                }
+            });
+        }
+
+        function checkWin() {
+            const winConditions = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ];
+            for (let i = 0; i < winConditions.length; i++) {
+                const [a, b, c] = winConditions[i];
+                if (cells[a].classList.contains(currentPlayer) &&
+                    cells[b].classList.contains(currentPlayer) &&
+                    cells[c].classList.contains(currentPlayer)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        function checkDraw() {
+            for (let i = 0; i < cells.length; i++) {
+                if (!cells[i].classList.contains("disabled")) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        function disableAllCells() {
+            for (let i = 0; i < cells.length; i++) {
+                cells[i].classList.add("disabled");
+            }
+       }
+// Dodanie nasłuchiwania zdarzenia dla przycisku resetującego grę
+    const resetBtn = document.getElementById("reset-btn");
+    resetBtn.addEventListener("click", function() {
+        // Usunięcie klas "disabled", "player1" i "player2" z komórek
+        for (let i = 0; i < cells.length; i++) {
+            cells[i].classList.remove("disabled", "player1", "player2");
+            cells[i].innerHTML = "";
+        }
+        // Ustawienie gracza rozpoczynającego na "player1"
+        currentPlayer = "player1";
+    });
+</script>
+</body>
+</html>
